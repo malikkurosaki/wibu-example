@@ -52,6 +52,10 @@ export const dataPage = [
     "url": "/page/revalidate-tag"
   },
   {
+    "name": "scroll-bottom",
+    "url": "/page/scroll-bottom"
+  },
+  {
     "name": "scroll-flex",
     "url": "/page/scroll-flex"
   },

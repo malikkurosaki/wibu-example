@@ -5,5 +5,17 @@ const withPWA = withPWAInit({
 });
 
 export default withPWA({
-
+    async headers() {
+        return [
+            {
+                source: '/worker.js',
+                headers: [
+                    {
+                        key: 'Content-Type',
+                        value: 'application/javascript',
+                    },
+                ],
+            },
+        ];
+    },
 });

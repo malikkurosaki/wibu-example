@@ -26,6 +26,7 @@
     "@types/node-persist": "^3.1.8",
     "@types/react-big-calendar": "^1.8.10",
     "@types/react-draft-wysiwyg": "^1.13.8",
+    "@types/web-push": "^3.6.3",
     "@types/yargs": "^17.0.32",
     "@uiw/react-markdown-preview": "^5.1.2",
     "ckeditor5": "^43.0.0",
@@ -51,6 +52,7 @@
     "sass": "^1.77.8",
     "suneditor": "^2.47.0",
     "suneditor-react": "^3.6.1",
+    "web-push": "^3.6.7",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
