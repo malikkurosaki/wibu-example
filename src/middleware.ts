@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { GlobalMqtt } from "./app/page/mqtt/_lib/globalMqtt";
+import mqtt from "mqtt";
+
+
 
 export function middleware(req: NextRequest) {
   const referer = req.headers.get("referer") || "";
@@ -12,5 +16,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: "/:path*", // Middleware akan berjalan di semua route
+  matcher: "/:path*" // Middleware akan berjalan di semua route
 };

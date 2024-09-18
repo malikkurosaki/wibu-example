@@ -28,6 +28,10 @@ export const dataPage = [
     "url": "/page/map"
   },
   {
+    "name": "mqtt",
+    "url": "/page/mqtt"
+  },
+  {
     "name": "pararel-route",
     "url": "/page/pararel-route"
   },
