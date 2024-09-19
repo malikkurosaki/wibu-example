@@ -21,5 +21,6 @@ if (!GlobalMqtt.client) {
 }
 
 export default function Page() {
+
   return <MtqqPage />;
 }

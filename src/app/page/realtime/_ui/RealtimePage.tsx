@@ -1,37 +1,61 @@
 "use client";
-import { Stack } from "@mantine/core";
-import { useShallowEffect } from "@mantine/hooks";
-import { urlB64ToUint8Array } from "../_lib/urlB64ToUint8Array";
-import { apies } from "@/lib/routes";
-import { FirebaseApp, initializeApp } from "firebase/app";
-import { getMessaging } from "firebase/messaging";
+import { Button, Group, Stack } from "@mantine/core";
+import { useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
 
-let app: FirebaseApp | null = null;
-async function initializeFirebase() {
-  const firebaseConfig = {
-    apiKey: "AIzaSyA3e2i9xshF06SVzDPv3clvE1jBwFgqvkI",
-    authDomain: "wibu-5281e.firebaseapp.com",
-    databaseURL:
-      "https://wibu-5281e-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "wibu-5281e",
-    storageBucket: "wibu-5281e.appspot.com",
-    messagingSenderId: "756250490701",
-    appId: "1:756250490701:web:b3d25786a683d98503e904",
-    measurementId: "G-1363RGK1FE"
-  };
+export function RealtimePage({
+  supabaseKey,
+  supabaseUrl
+}: {
+  supabaseKey: string;
+  supabaseUrl: string;
+}) {
+  const supabase = createClient(supabaseUrl, supabaseKey);
 
-  if (!app) {
-    app = initializeApp(firebaseConfig);
-    getMessaging(app);
+    useEffect(() => {
+      const handleInserts = (payload: any) => {
+        console.log("Change received!", payload);
+      };
+
+      // Subscribe to realtime changes
+      const messageSubscription = supabase
+        .channel("sdm")
+        .on(
+          "postgres_changes",
+          { event: "*", schema: "public", table: "sdm" },
+          handleInserts
+        )
+        .subscribe();
+
+      // Cleanup subscription on unmount
+      return () => {
+        supabase.removeChannel(messageSubscription);
+      };
+    }, [supabase]);
+
+  async function onKLirim() {
+    const { status, error } = await supabase.from("sdm").upsert({
+      id: "123e4567-e89b-12d3-a456-426614174000",
+      data: {
+        name: "wibu 2"
+      }
+    });
+
+    if (error) {
+      console.error("Error:", JSON.stringify(error));
+    } else {
+      console.log("Upsert status:", status);
+    }
   }
-}
 
-export function RealtimePage({ publicKey }: { publicKey: string }) {
-  useShallowEffect(() => {}, []);
   return (
-    <Stack>
-      {publicKey}
-      realtime page
+    <Stack p={"lg"}>
+      <Group>
+        <Stack>
+          Realtime page
+          <Button onClick={onKLirim}>Kirim</Button>
+        </Stack>
+      </Group>
     </Stack>
   );
 }
