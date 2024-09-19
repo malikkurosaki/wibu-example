@@ -1,11 +1,9 @@
 import mqtt from "mqtt";
-import { GlobalMqtt } from "../../_lib/globalMqtt";
 
 export async function POST(req: Request) {
   const brokerUrl = "wss://io.wibudev.com"; // Ganti dengan URL broker MQTT kamu
   const topic = "wibu"; // Ganti dengan topik yang sesuai
 
-  // // Inisialisasi client MQTT
   const client = mqtt.connect(brokerUrl);
 
   client.on("connect", () => {
@@ -33,3 +31,5 @@ export async function POST(req: Request) {
 
   return new Response("Message sent successfully", { status: 200 });
 }
+
+
