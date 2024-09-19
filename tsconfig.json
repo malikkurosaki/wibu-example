@@ -22,6 +22,6 @@
     }
   },
   
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "generator/generate_list_pagets"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "generator/generate_list_pagets", "public/wibu_eraltime_worker.js"],
   "exclude": ["node_modules"]
 }

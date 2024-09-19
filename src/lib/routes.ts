@@ -6,6 +6,7 @@ export const pages = {
   "/page/scroll-bottom": "/page/scroll-bottom",
   "/page/revalidate-tag": "/page/revalidate-tag",
   "/page/revalidate-path": "/page/revalidate-path",
+  "/page/realtime": "/page/realtime",
   "/page/react-html": "/page/react-html",
   "/page/pwa": "/page/pwa",
   "/page/pdf": "/page/pdf",
@@ -30,6 +31,7 @@ export const apies = {
   "/page/upload-image/api/image": "/page/upload-image/api/image",
   "/page/revalidate-tag/api/revalidate-tag":
     "/page/revalidate-tag/api/revalidate-tag",
+  "/page/realtime/api/subscribe": "/page/realtime/api/subscribe",
   "/page/mqtt/api/send-message": "/page/mqtt/api/send-message",
   "/page/copy-dir/api/[dir]/list": ({ dir }: { dir: string }) =>
     `/page/copy-dir/api/${dir}/list`,

@@ -48,6 +48,10 @@ export const dataPage = [
     "url": "/page/react-html"
   },
   {
+    "name": "realtime",
+    "url": "/page/realtime"
+  },
+  {
     "name": "revalidate-path",
     "url": "/page/revalidate-path"
   },

@@ -1,21 +1,6 @@
-import withPWAInit from "@ducanh2912/next-pwa";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    reactStrictMode: false
+};
 
-const withPWA = withPWAInit({
-    dest: "public",
-});
-
-export default withPWA({
-    async headers() {
-        return [
-            {
-                source: '/worker.js',
-                headers: [
-                    {
-                        key: 'Content-Type',
-                        value: 'application/javascript',
-                    },
-                ],
-            },
-        ];
-    },
-});
+export default nextConfig;
