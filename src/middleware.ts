@@ -1,9 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GlobalMqtt } from "./app/page/mqtt/_lib/globalMqtt";
-import mqtt from "mqtt";
-
-
-
 export function middleware(req: NextRequest) {
   const referer = req.headers.get("referer") || "";
   const origin = referer ? new URL(referer).origin : "https://example.com";
